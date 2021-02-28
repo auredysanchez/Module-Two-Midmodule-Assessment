@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="./index.js" defer></script>
+    <link rel="stylesheet" href="./index.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Dice Roller</h1>
     <label>
-       Number of dice: <input id="number-of-dice" type="number" min="0" max="30"/>
+      Number of dice:
+      <input id="number-of-dice" type="number" min="0" max="30" />
     </label>
-    <br/>
-    <button id="roll-dice" >Roll The Dice!</button>
-    <br/>
-    <p id="dice-para"></p>
-    
-    <label>
-        <input id="" type="text">
-    </label>
-    <ul></ul>
-
-</body>
+    <br />
+    <button id="roll-dice">Roll The Dice!</button>
+    <br />
+    <section class="dice-roll">
+      <p id="dice-para"></p>
+      Sum =
+      <p id="sum-para"></p>
+    </section>
+    <br />
+    <section class="history">
+      <h1>History</h1>
+      <ul></ul>
+    </section>
+  </body>
 </html>
