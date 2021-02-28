@@ -9,32 +9,30 @@
 // - The sum from rolling should be stored in an element with the id "sum-para"
 // - Use the follow HTML entity values for dice:
 // dice in order ["&#9856 = ⚀", "&#9857 = ⚁", "&#9858 = ⚂", "&#9859 = ⚃", "&#9860 = ⚄", "&#9861 = ⚅"]
-const theDice = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"]
+const theDice = ["⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
 
 document.addEventListener("DOMContentLoaded", () => {
+  const dieBtn = document.querySelector("#roll-dice");
+
+  dieBtn.addEventListener("click", (e) => {
+    e.preventDefault();
     const liHistory = document.createElement("li");
-    const dieBtn = document.querySelector("#roll-dice");
-    const ul = document.querySelector("ul");
     const dicePara = document.querySelector("#dice-para");
-    const sum = document.querySelector("#sum-para");
+    const ul = document.querySelector("ul");
     let roll = 0;
-    ul.appendChild(liHistory)
-    
-    dieBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        let diceStr = "";
-        const numDice = Number(document.querySelector("#number-of-dice").value);
+    let diceStr = "";
+    const numDice = document.querySelector("#number-of-dice");
+    const sum = document.querySelector("#sum-para");
 
-        for (i = 0; i < numDice; i++) {
-            let randomDie = theDice[Math.floor(Math.random() * theDice.length)];
-            diceStr += randomDie;
-        }
-        dicePara.textContent = diceStr
-
-
-
-
-
-    })
-
-})
+    for (i = 0; i < numDice.value; i++) {
+      let randomDie = Math.floor(Math.random() * theDice.length);
+      diceStr += theDice[randomDie];
+      roll += Number(randomDie + 1);
+    }
+    dicePara.textContent = `${diceStr}`;
+    sum.textContent = ` = ${roll}`;
+    liHistory.textContent = dicePara.textContent + sum.textContent;
+    ul.appendChild(liHistory);
+    // numDice.textContent = "";
+  });
+});
